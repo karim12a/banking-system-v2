@@ -1,0 +1,13 @@
+services:
+  mysql:
+    image: mysql:8.3.0
+    container_name: bankv2
+    environment:
+      MYSQL_DATABASE: bank
+      MYSQL_USER: bank
+      MYSQL_ROOT_PASSWORD: Banksystm
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
